@@ -1,11 +1,49 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import ArrowIcon from '../components/svg/ArrowIcon.astro'
+import { basics } from '../schema/jsonresume.json'
 ---
 
 <Layout title='Welcome to Astro.'>
-	<main>Hello world</main>
+	<main class='h-screen overflow-auto'>
+		<section class='bg-black w-10/12 mx-auto bg-opacity-85'>
+			<article class='h-[calc(100vh)] flex items-center pb-40 relative'>
+				<div class='absolute w-full bottom-20 animate-float'>
+					<ArrowIcon className='opacity-95 w-20 mx-auto rotate-90' />
+				</div>
+				<section class='w-2/3 flex flex-col items-centerm mt-12 pl-12'>
+					<h1 class='text-8xl font-bold mr-auto text-blue-300'>{basics.label}</h1>
+					<p class='w-[44ch] text-pretty text-3xl mt-3 pl-6 indent-10'>{basics.summary}</p>
+				</section>
+				<section class='w-1/3'>
+					<figure class='w-80 mx-auto flex'>
+						<img
+							class='aspect-square object-cover object-bottom rounded-full'
+							src={basics.image}
+							alt={`${basics.name} image`}
+						/>
+					</figure>
+					<h2 class='text-4xl font-semibold text-center mt-5 text-yellow-200'>{basics.name}</h2>
+				</section>
+			</article>
+		</section>
+	</main>
 </Layout>
 
 <style>
+	.animate-float {
+		animation: floatAnimation 2s ease-in-out infinite;
+	}
+	@keyframes floatAnimation {
+		0% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-12px);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
 
 </style>
