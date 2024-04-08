@@ -1,3 +1,3 @@
-JSON SCHEMA
+JSON SCHEMA 
 
 https://jsonresume.org/

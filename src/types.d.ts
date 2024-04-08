@@ -1,3 +1,3 @@
 export interface svgProps {
-    className: string
+	className: string
 }

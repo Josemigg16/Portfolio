@@ -1,12 +1,12 @@
 ---
 interface Props {
-	title: string
+  title: string
 }
 
 const { title } = Astro.props
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang='en'>
 	<head>
 		<meta charset='UTF-8' />
@@ -22,20 +22,20 @@ const { title } = Astro.props
 		<meta name='generator' content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="h-screen overflow-hidden">
+	<body class='h-screen overflow-hidden'>
 		<slot />
 		<style is:global>
-			:root {
-				color-scheme: light dark;
-			}
-			body {
-				font-family: Onest;
-				background-image: url('/background.gif');
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;
-				position: sticky;
-			}
+      :root {
+        color-scheme: light dark;
+      }
+      body {
+        font-family: Onest;
+        background-image: url('/background.gif');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: sticky;
+      }
 		</style>
 	</body>
 </html>

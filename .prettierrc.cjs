@@ -1,4 +1,4 @@
-const { rules } = require("eslint-config-prettier");
+const { rules } = require('eslint-config-prettier')
 
 module.exports = {
 	printWidth: 100,
@@ -8,13 +8,15 @@ module.exports = {
 	tabWidth: 2,
 	trailingComma: 'none',
 	useTabs: true,
+	plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
 	overrides: [
 		{
-			files: ['*.json', '*.md', '*.toml', '*.yml'],
+			files: ['*.json', '*.md', '*.toml', '*.yml', '*.astro'],
 			options: {
-				useTabs: false
+				useTabs: false,
+				parser: 'astro'
 			}
 		}
 	],
-	endOfLine: 'lf',
+	endOfLine: 'lf'
 }
