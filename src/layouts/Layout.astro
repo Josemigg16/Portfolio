@@ -8,23 +8,23 @@ const { title } = Astro.props
 
 <!doctype html>
 <html lang='en'>
-	<head>
-		<meta charset='UTF-8' />
-		<meta name='description' content='Astro description' />
-		<meta name='viewport' content='width=device-width' />
-		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-		<link rel='preconnect' href='https://fonts.googleapis.com' />
-		<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-		<link
-			href='https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap'
-			rel='stylesheet'
-		/>
-		<meta name='generator' content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body class='h-screen overflow-hidden'>
-		<slot />
-		<style is:global>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content='Astro description' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap'
+      rel='stylesheet'
+    />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class='h-screen overflow-hidden'>
+    <slot />
+    <style is:global>
       :root {
         color-scheme: light dark;
       }
@@ -36,6 +36,21 @@ const { title } = Astro.props
         background-position: center;
         position: sticky;
       }
-		</style>
-	</body>
+
+      .animate-float {
+        animation: floatAnimation 2s ease-in-out infinite;
+      }
+      @keyframes floatAnimation {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </body>
 </html>

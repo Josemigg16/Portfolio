@@ -14,7 +14,7 @@ const { class: className, type = 'lg' } = Astro.props
 {
   type === 'md' && (
     <h2
-      class={`text-xl font-bold text-blue-300 sm:text-3xl md:text-4xl 2xl:text-6xl ${className}`}
+      class={`font-bold text-blue-300 text-2xl sm:text-3xl md:text-4xl 2xl:text-6xl ${className}`}
     >
       <slot />
     </h2>

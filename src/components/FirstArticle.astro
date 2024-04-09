@@ -6,7 +6,7 @@ import { basics } from '../schema/jsonresume.json'
 ---
 
 <article
-  class='relative flex min-h-screen flex-col items-center gap-2 pb-40 pt-20 lg:flex-row lg:px-16 xl:flex-nowrap'
+  class='relative flex min-h-screen flex-col items-center gap-2 pb-40 pt-20 lg:flex-row lg:px-16'
 >
   <div class='animate-float absolute bottom-10 left-0 w-full xl:bottom-20'>
     <ArrowIcon className='mx-auto w-14 rotate-90 opacity-95 md:w-20' />
@@ -29,18 +29,5 @@ import { basics } from '../schema/jsonresume.json'
   </section>
 </article>
 <style>
-  .animate-float {
-    animation: floatAnimation 2s ease-in-out infinite;
-  }
-  @keyframes floatAnimation {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-12px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
+  
 </style>
