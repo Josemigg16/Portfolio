@@ -13,7 +13,7 @@ import TailwindIcon from './svg/TailwindIcon.astro'
 
 <article class='min-h-screen px-10 pb-20 lg:px-20'>
   <ResponsiveTitle class='py-20 text-center lg:pl-20 lg:text-start'>Projects</ResponsiveTitle>
-  <section class='flex min-h-80 flex-col items-center justify-around lg:flex-row mb-24'>
+  <section class='mb-24 flex min-h-80 flex-col items-center justify-around lg:flex-row'>
     <article class='min-w-[60%]'>
       <ResponsiveTitle class='text-yellow-200 lg:pl-24' type='md'>Cortito</ResponsiveTitle>
       <ResponsiveParagraph class='pr-6'
@@ -27,7 +27,7 @@ import TailwindIcon from './svg/TailwindIcon.astro'
       <figure class=''>
         <video class='rounded' src={'/cortito.mp4'} autoplay muted></video>
       </figure>
-      <ul class='mx-auto mt-4 flex items-center justify-center gap-4'>
+      <ul class='mx-auto mt-4 flex flex-wrap items-center justify-center gap-4'>
         <NextIcon class='h-10 w-10' />
         <ReactIcon class='h-10 w-10' />
         <NodeIcon class='mt-1.5 h-10 w-10' />
@@ -52,7 +52,7 @@ import TailwindIcon from './svg/TailwindIcon.astro'
       <figure class=''>
         <video class='rounded' src={'/secrettito.mp4'} autoplay muted></video>
       </figure>
-      <ul class='mx-auto mt-4 flex items-center justify-center gap-4'>
+      <ul class='mx-auto mt-4 flex flex-wrap items-center justify-center gap-4'>
         <AstroIcon class='mt-2.5 h-10 w-10' />
         <ReactIcon class='h-10 w-10' />
         <PostgresIcon class='mt-1.5 h-10 w-10' />
