@@ -9,18 +9,16 @@ import PostgresIcon from './svg/PostgresIcon.astro'
 import PrismaIcon from './svg/PrismaIcon.astro'
 import ReactIcon from './svg/ReactIcon.astro'
 import TailwindIcon from './svg/TailwindIcon.astro'
+import { projects } from '../schema/jsonresume.json'
 ---
 
 <article class='min-h-screen px-10 pb-20 lg:px-20'>
   <ResponsiveTitle class='py-20 text-center lg:pl-20 lg:text-start'>Projects</ResponsiveTitle>
   <section class='mb-24 flex min-h-80 flex-col items-center justify-around lg:flex-row'>
     <article class='min-w-[60%]'>
-      <ResponsiveTitle class='text-yellow-200 lg:pl-24' type='md'>Cortito</ResponsiveTitle>
+      <ResponsiveTitle class='text-yellow-200 lg:pl-24' type='md'>{projects[0].name}</ResponsiveTitle>
       <ResponsiveParagraph class='pr-6'
-        >Cortito is an open source full stack link shortener, it will create it easily and you can
-        sign in with google or github to save, edit and delete your shortcuts with intuitive UI,
-        aslo they have two views, as cards and as a list. It was made in Astro with React for
-        Frontend and Express.js, Prisma and PostgreSQL for backend.
+        >{projects[0].description}
       </ResponsiveParagraph>
     </article>
     <article class='mt-8 min-w-[200px] max-w-[70%] lg:mt-24'>
@@ -28,10 +26,8 @@ import TailwindIcon from './svg/TailwindIcon.astro'
         <video class='rounded' src={'/cortito.mp4'} autoplay muted></video>
       </figure>
       <ul class='mx-auto mt-4 flex flex-wrap items-center justify-center gap-4'>
-        <NextIcon class='h-10 w-10' />
+        <AstroIcon class='mt-2.5 h-10 w-10' />
         <ReactIcon class='h-10 w-10' />
-        <NodeIcon class='mt-1.5 h-10 w-10' />
-        <ExpressjsIcon class='mt-2 h-11 w-11' />
         <PostgresIcon class='mt-1.5 h-10 w-10' />
         <PrismaIcon class='h-9 w-9' />
         <TailwindIcon class='h-10 w-10' />
@@ -40,12 +36,9 @@ import TailwindIcon from './svg/TailwindIcon.astro'
   </section>
   <section class='flex min-h-80 flex-col items-center justify-around lg:flex-row'>
     <article class='min-w-[60%]'>
-      <ResponsiveTitle class='text-yellow-200 lg:pl-24' type='md'>Secrettito</ResponsiveTitle>
+      <ResponsiveTitle class='text-yellow-200 lg:pl-24' type='md'>{projects[1].name}</ResponsiveTitle>
       <ResponsiveParagraph class='pr-6'
-        >Secrettito is an open source web aplication for fun, you can create post where your friends
-        will be able to send you anonymous messages, you might copy them easily or use native share,
-        also it provide you a nice UX for watching the messages. Frontend and Backend are in a
-        next.js web app with postgreSQL as database and Prisma as ORM.
+        >{projects[1].description}
       </ResponsiveParagraph>
     </article>
     <article class='mt-8 min-w-[200px] max-w-[70%] lg:mt-24'>
@@ -53,8 +46,10 @@ import TailwindIcon from './svg/TailwindIcon.astro'
         <video class='rounded' src={'/secrettito.mp4'} autoplay muted></video>
       </figure>
       <ul class='mx-auto mt-4 flex flex-wrap items-center justify-center gap-4'>
-        <AstroIcon class='mt-2.5 h-10 w-10' />
+        <NextIcon class='h-10 w-10' />
         <ReactIcon class='h-10 w-10' />
+        <NodeIcon class='mt-1.5 h-10 w-10' />
+        <ExpressjsIcon class='mt-2 h-11 w-11' />
         <PostgresIcon class='mt-1.5 h-10 w-10' />
         <PrismaIcon class='h-9 w-9' />
         <TailwindIcon class='h-10 w-10' />
