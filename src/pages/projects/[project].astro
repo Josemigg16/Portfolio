@@ -1,0 +1,14 @@
+---
+import { projects } from '../../schema/jsonresume.json'
+import type { GetStaticPaths } from 'astro'
+export const getStaticPaths = (() => {
+  return projects.map((project) => ({
+    params: { project: project.slug },
+    props: { project }
+  }))
+}) satisfies GetStaticPaths
+
+const { project } = Astro.props
+---
+
+<h1>{project.name}</h1>
