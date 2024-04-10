@@ -30,12 +30,12 @@
         {
             "name":"Cortito",
             "description":"Cortito is an open source full stack link shortener, it will create it easily and you can sign in with google or github to save, edit and delete your shortcuts with intuitive UI, also they have two views, as cards and as a list. It was made in Astro with React for Frontend and Express.js, Prisma and PostgreSQL for backend.",
-            "slug":"/projects/cortito"
+            "slug":"/cortito"
         },
         {
             "name": "Secrettito",
             "description": "Secrettito is an open source web aplication for fun, you can create post where your friends will be able to send you anonymous messages, you might copy them easily or use native share, also it provide you a nice UX for watching the messages. Frontend and Backend are in a next.js web app with postgreSQL as database and Prisma as ORM.",
-            "slug": "/projects/secrettito"
+            "slug": "/secrettito"
         }
     ],
     "education": [
