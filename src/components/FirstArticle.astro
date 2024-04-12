@@ -6,28 +6,28 @@ import { basics } from '../schema/jsonresume.json'
 ---
 
 <article
-  class='relative flex min-h-screen flex-col items-center gap-2 pb-40 pt-20 lg:flex-row lg:px-16'
+	class='relative flex min-h-screen flex-col items-center gap-2 pb-40 pt-20 lg:flex-row lg:px-16'
 >
-  <div class='animate-float absolute bottom-10 left-0 w-full xl:bottom-20'>
-    <ArrowIcon className='mx-auto w-14 rotate-90 opacity-95 md:w-20' />
-  </div>
-  <section class='mx-auto w-1/3 min-w-fit xl:min-w-[380px]'>
-    <figure class='mx-auto flex w-48 xl:w-60 2xl:w-80'>
-      <img
-        class='aspect-square rounded-full object-cover object-bottom'
-        src={basics.image}
-        alt={`${basics.name} image`}
-      />
-    </figure>
-    <h2 class='mt-5 text-center text-2xl font-semibold text-yellow-200'>{basics.name}</h2>
-  </section>
-  <section
-    class='items-centerm mx-auto mt-12 flex w-2/3 max-w-full flex-col items-center lg:items-start xl:min-w-[620px]'
-  >
-    <ResponsiveTitle>{basics.label}</ResponsiveTitle>
-    <ResponsiveParagraph>{basics.summary}</ResponsiveParagraph>
-  </section>
+	<div class='animate-float absolute bottom-10 left-0 w-full xl:bottom-20'>
+		<ArrowIcon className='mx-auto w-14 rotate-90 opacity-95 md:w-20' />
+	</div>
+	<section class='mx-auto w-1/3 min-w-fit xl:min-w-[380px]'>
+		<figure class='mx-auto flex w-48 xl:w-60 2xl:w-80'>
+			<img
+				class='aspect-square rounded-full object-cover object-bottom'
+				src={basics.image}
+				alt={`${basics.name} image`}
+			/>
+		</figure>
+		<h2 class='mt-5 text-center text-2xl font-semibold text-yellow-200'>{basics.name}</h2>
+	</section>
+	<section
+		class='items-centerm mx-auto mt-12 flex w-2/3 max-w-full flex-col items-center lg:items-start xl:min-w-[620px]'
+	>
+		<ResponsiveTitle>{basics.label}</ResponsiveTitle>
+		<ResponsiveParagraph>{basics.summary}</ResponsiveParagraph>
+	</section>
 </article>
 <style>
-  
+
 </style>

@@ -13,47 +13,47 @@ import { projects } from '../schema/jsonresume.json'
 ---
 
 <article class='min-h-screen px-10 pb-20 lg:px-20'>
-  <ResponsiveTitle class='py-20 text-center lg:pl-20 lg:text-start'>Projects</ResponsiveTitle>
-  <section class='mb-24 flex min-h-80 flex-col items-center justify-around lg:flex-row'>
-    <article class='min-w-[60%]'>
-      <ResponsiveTitle class='text-yellow-200 lg:pl-24' type='md'>{projects[0].name}</ResponsiveTitle>
-      <ResponsiveParagraph class='pr-6'
-        >{projects[0].description}
-      </ResponsiveParagraph>
-    </article>
-    <article class='mt-8 min-w-[200px] max-w-[70%] lg:mt-24'>
-      <figure class=''>
-        <video class='rounded' src={'/cortito.mp4'} autoplay muted></video>
-      </figure>
-      <ul class='mx-auto mt-4 flex flex-wrap items-center justify-center gap-4'>
-        <AstroIcon class='mt-2.5 h-10 w-10' />
-        <ReactIcon class='h-10 w-10' />
-        <PostgresIcon class='mt-1.5 h-10 w-10' />
-        <PrismaIcon class='h-9 w-9' />
-        <TailwindIcon class='h-10 w-10' />
-      </ul>
-    </article>
-  </section>
-  <section class='flex min-h-80 flex-col items-center justify-around lg:flex-row'>
-    <article class='min-w-[60%]'>
-      <ResponsiveTitle class='text-yellow-200 lg:pl-24' type='md'>{projects[1].name}</ResponsiveTitle>
-      <ResponsiveParagraph class='pr-6'
-        >{projects[1].description}
-      </ResponsiveParagraph>
-    </article>
-    <article class='mt-8 min-w-[200px] max-w-[70%] lg:mt-24'>
-      <figure class=''>
-        <video class='rounded' src={'/secrettito.mp4'} autoplay muted></video>
-      </figure>
-      <ul class='mx-auto mt-4 flex flex-wrap items-center justify-center gap-4'>
-        <NextIcon class='h-10 w-10' />
-        <ReactIcon class='h-10 w-10' />
-        <NodeIcon class='mt-1.5 h-10 w-10' />
-        <ExpressjsIcon class='mt-2 h-11 w-11' />
-        <PostgresIcon class='mt-1.5 h-10 w-10' />
-        <PrismaIcon class='h-9 w-9' />
-        <TailwindIcon class='h-10 w-10' />
-      </ul>
-    </article>
-  </section>
+	<ResponsiveTitle class='py-20 text-center lg:pl-20 lg:text-start'>Projects</ResponsiveTitle>
+	<section class='mb-24 flex min-h-80 flex-col items-center justify-around lg:flex-row'>
+		<article class='min-w-[60%]'>
+			<ResponsiveTitle class='text-yellow-200 lg:pl-24' type='md'>{projects[0].name}</ResponsiveTitle>
+			<ResponsiveParagraph class='pr-6'
+			>{projects[0].description}
+			</ResponsiveParagraph>
+		</article>
+		<article class='mt-8 min-w-[200px] max-w-[70%] lg:mt-24'>
+			<figure class=''>
+				<video class='rounded' src={'/cortito.mp4'} autoplay muted></video>
+			</figure>
+			<ul class='mx-auto mt-4 flex flex-wrap items-center justify-center gap-4'>
+				<AstroIcon class='mt-2.5 h-10 w-10' />
+				<ReactIcon class='h-10 w-10' />
+				<PostgresIcon class='mt-1.5 h-10 w-10' />
+				<PrismaIcon class='h-9 w-9' />
+				<TailwindIcon class='h-10 w-10' />
+			</ul>
+		</article>
+	</section>
+	<section class='flex min-h-80 flex-col items-center justify-around lg:flex-row'>
+		<article class='min-w-[60%]'>
+			<ResponsiveTitle class='text-yellow-200 lg:pl-24' type='md'>{projects[1].name}</ResponsiveTitle>
+			<ResponsiveParagraph class='pr-6'
+			>{projects[1].description}
+			</ResponsiveParagraph>
+		</article>
+		<article class='mt-8 min-w-[200px] max-w-[70%] lg:mt-24'>
+			<figure class=''>
+				<video class='rounded' src={'/secrettito.mp4'} autoplay muted></video>
+			</figure>
+			<ul class='mx-auto mt-4 flex flex-wrap items-center justify-center gap-4'>
+				<NextIcon class='h-10 w-10' />
+				<ReactIcon class='h-10 w-10' />
+				<NodeIcon class='mt-1.5 h-10 w-10' />
+				<ExpressjsIcon class='mt-2 h-11 w-11' />
+				<PostgresIcon class='mt-1.5 h-10 w-10' />
+				<PrismaIcon class='h-9 w-9' />
+				<TailwindIcon class='h-10 w-10' />
+			</ul>
+		</article>
+	</section>
 </article>
