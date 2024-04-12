@@ -1,0 +1,43 @@
+---
+import { projects } from '../schema/jsonresume.json'
+import ResponsiveTitle from './ResponsiveTitle.astro'
+import ResponsiveParagraph from './ResponsiveParagraph.astro'
+import { getIcons } from '../utils/iconList'
+
+interface Props {
+  index: number
+  class?: string
+}
+
+const { index, class: className }: Props = Astro.props
+---
+
+<section class={`flex min-h-80 flex-col items-center justify-around lg:flex-row ${className}`}>
+  <article class='min-w-[60%]'>
+    <ResponsiveTitle class='text-yellow-200 lg:pl-24' type='md'
+      >{projects[index].name}</ResponsiveTitle
+    >
+    <ResponsiveParagraph class='pr-6'>{projects[index].description} </ResponsiveParagraph>
+  </article>
+  <article class='mt-8 min-w-[200px] max-w-[70%] lg:mt-24'>
+    <figure class=''>
+      <a href={`/projects/${projects[index].slug}`}>
+        <video
+          transition:name={`${projects[index].name} video`}
+          transition:persist
+          class='rounded transition-[opacity_transform] hover:scale-110 hover:opacity-80'
+          src={`${projects[index].slug}.mp4`}
+        >
+        </video>
+      </a>
+    </figure>
+    <ul class='mx-auto mt-4 flex flex-wrap items-center justify-center gap-4'>
+      {
+        getIcons(projects[index].technologies).map(({ Icon, className }) => {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          return <Icon class={className} />
+        })
+      }
+    </ul>
+  </article>
+</section>
