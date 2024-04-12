@@ -25,6 +25,7 @@ const { project } = Astro.props
 			<div class='mb-8 flex scale-125 items-center justify-center gap-4'>
 				{
 					getIcons(project.technologies).map(({ Icon, className }) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
 						return <Icon class={className} />
 					})
 				}

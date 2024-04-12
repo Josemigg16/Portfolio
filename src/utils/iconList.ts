@@ -1,4 +1,4 @@
-import type { AstroComponent } from 'astro'
+import type {} from 'astro/types'
 import AstroIcon from '../components/svg/tech/AstroIcon.astro'
 import ExpressjsIcon from '../components/svg/tech/ExpressjsIcon.astro'
 import NextIcon from '../components/svg/tech/NextIcon.astro'
@@ -9,7 +9,8 @@ import ReactIcon from '../components/svg/tech/ReactIcon.astro'
 import TailwindIcon from '../components/svg/tech/TailwindIcon.astro'
 
 interface Icon {
-	Icon: AstroComponent
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	Icon: any
 	className: string
 }
 
