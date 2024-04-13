@@ -22,31 +22,31 @@ const { project, class: className }: Props = Astro.props
 ---
 
 <section class={`flex min-h-80 flex-col items-center justify-around lg:flex-row ${className}`}>
-  <article class='min-w-[60%]'>
-    <ResponsiveTitle 
-    class='text-yellow-200 lg:pl-24' type='md'
-      >{project.name}</ResponsiveTitle
-    >
-    <ResponsiveParagraph class='pr-6'>{project.description} </ResponsiveParagraph>
-  </article>
-  <article class='mt-8 min-w-[200px] max-w-[70%] lg:mt-24'>
-    <figure class=''>
-      <a href={`/projects/${project.slug}`}>
-        <video
-          transition:name={`${project.name} video`}
-          class='rounded transition-[opacity_transform] hover:scale-105 hover:contrast-125'
-          src={`${project.slug}.mp4`}
-        >
-        </video>
-      </a>
-    </figure>
-    <ul class='mx-auto mt-4 flex flex-wrap items-center justify-center gap-4'>
-      {
-        getIcons(project.technologies).map(({ Icon, className }, index) => {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          return <Icon class={className} />
-        })
-      }
-    </ul>
-  </article>
+	<article class='min-w-[60%]'>
+		<ResponsiveTitle
+			class='text-yellow-200 lg:pl-24' type='md'
+		>{project.name}</ResponsiveTitle
+		>
+		<ResponsiveParagraph class='pr-6'>{project.description} </ResponsiveParagraph>
+	</article>
+	<article class='mt-8 min-w-[200px] max-w-[70%] lg:mt-24'>
+		<figure class=''>
+			<a href={`/projects/${project.slug}`}>
+				<video
+					transition:name={`${project.name} video`}
+					class='rounded transition-[opacity_transform] hover:scale-105 hover:contrast-125'
+					src={`${project.slug}.mp4`}
+				>
+				</video>
+			</a>
+		</figure>
+		<ul class='mx-auto mt-4 flex flex-wrap items-center justify-center gap-4'>
+			{
+				getIcons(project.technologies).map(({ Icon, className }) => {
+					// eslint-disable-next-line @typescript-eslint/no-explicit-any
+					return <Icon class={className} />
+				})
+			}
+		</ul>
+	</article>
 </section>
