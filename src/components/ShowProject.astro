@@ -32,12 +32,13 @@ const { project, class: className }: Props = Astro.props
 	<article class='mt-8 min-w-[200px] max-w-[70%] lg:mt-24'>
 		<figure class=''>
 			<a href={`/projects/${project.slug}`}>
-				<video
+				<img
 					transition:name={`${project.name} video`}
-					class='rounded transition-[opacity_transform] hover:scale-105 hover:contrast-125'
-					src={`${project.slug}.mp4`}
+					class='rounded transition-[opacity_transform] hover:scale-105'
+					style="mask-image: linear-gradient(to bottom, black 90%, transparent);"
+					src={`${project.slug}.png`}
 				>
-				</video>
+				</img>
 			</a>
 		</figure>
 		<ul class='mx-auto mt-4 flex flex-wrap items-center justify-center gap-4'>
