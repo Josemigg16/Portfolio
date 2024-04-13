@@ -22,7 +22,6 @@ const { project } = Astro.props
       <ResponsiveTitle class='pl-12'>{project.name}</ResponsiveTitle>
       <video
         transition:name={`${project.name} video`}
-		transition:persist
         class='mx-auto my-8 w-5/6 rounded'
         src={`${project.slug}.mp4`}
         autoplay

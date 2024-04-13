@@ -24,7 +24,6 @@ const { index, class: className }: Props = Astro.props
       <a href={`/projects/${projects[index].slug}`}>
         <video
           transition:name={`${projects[index].name} video`}
-          transition:persist
           class='rounded transition-[opacity_transform] hover:scale-110 hover:opacity-80'
           src={`${projects[index].slug}.mp4`}
         >
