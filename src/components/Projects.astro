@@ -1,20 +1,11 @@
 ---
-import ResponsiveParagraph from './ResponsiveParagraph.astro'
 import ResponsiveTitle from './ResponsiveTitle.astro'
 import ShowProject from './ShowProject.astro'
-import AstroIcon from './svg/tech/AstroIcon.astro'
-import ExpressjsIcon from './svg/tech/ExpressjsIcon.astro'
-import NextIcon from './svg/tech/NextIcon.astro'
-import NodeIcon from './svg/tech/NodeIcon.astro'
-import PostgresIcon from './svg/tech/PostgresIcon.astro'
-import PrismaIcon from './svg/tech/PrismaIcon.astro'
-import ReactIcon from './svg/tech/ReactIcon.astro'
-import TailwindIcon from './svg/tech/TailwindIcon.astro'
+import { projects } from '../schema/jsonresume.json'
 ---
 
 <article class='min-h-screen px-10 pb-20 lg:px-20'>
   <ResponsiveTitle class='py-20 text-center lg:pl-20 lg:text-start'>Projects</ResponsiveTitle>
 
-  <ShowProject index={0} class='mb-24' />
-  <ShowProject index={1} />
+  {projects.map((project) => <ShowProject project={project} />)}
 </article>
