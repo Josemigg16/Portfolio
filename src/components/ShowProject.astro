@@ -23,10 +23,7 @@ const { project, class: className }: Props = Astro.props
 
 <section class={`flex min-h-80 flex-col items-center justify-around lg:flex-row ${className}`}>
 	<article class='min-w-[60%]'>
-		<ResponsiveTitle
-			class='text-yellow-200 lg:pl-24' type='md'
-		>{project.name}</ResponsiveTitle
-		>
+		<ResponsiveTitle class='text-yellow-200 lg:pl-24' type='md'>{project.name}</ResponsiveTitle>
 		<ResponsiveParagraph class='pr-6'>{project.description} </ResponsiveParagraph>
 	</article>
 	<article class='mt-8 min-w-[200px] max-w-[70%] lg:mt-24'>
@@ -35,10 +32,9 @@ const { project, class: className }: Props = Astro.props
 				<img
 					transition:name={`${project.name} video`}
 					class='rounded transition-[opacity_transform] hover:scale-105'
-					style="mask-image: linear-gradient(to bottom, black 90%, transparent);"
+					style='mask-image: linear-gradient(to bottom, black 90%, transparent);'
 					src={`${project.slug}.png`}
-				>
-				</img>
+				/>
 			</a>
 		</figure>
 		<ul class='mx-auto mt-4 flex flex-wrap items-center justify-center gap-4'>
