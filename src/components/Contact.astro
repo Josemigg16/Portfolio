@@ -1,19 +1,41 @@
 ---
 import ResponsiveTitle from './ResponsiveTitle.astro'
 import LinkedInIcon from './svg/Contact/LinkedInIcon.astro'
+import UpworkIcon from './svg/Contact/UpworkIcon.astro'
+import GithubIcon from './svg/tech/GithubIcon.astro'
+import GmailIcon from './svg/Contact/GmailIcon.astro'
 ---
 
 <article class='min-h-screen px-10 pb-20 lg:px-20'>
-  <ResponsiveTitle class='py-20 text-center text-red-200 lg:pl-20 lg:text-start'
-    >Contact</ResponsiveTitle
-  >
-  <ul class='space-y-8'>
-    <ResponsiveTitle type='md' class='flex items-center gap-4 text-gray-200'
-      >- <a
-        class='flex items-center gap-4 hover:underline'
-        href='https://www.linkedin.com/in/jos%C3%A9-miguel-g%C3%B3mez-94418728b/' target="_blank"
-        ><LinkedInIcon class='h-16 w-16' /> LinkedIn</a
-      >
-    </ResponsiveTitle>
-  </ul>
+	<ResponsiveTitle class='py-20 text-center text-red-200 lg:pl-20 lg:text-start'
+	>Contact</ResponsiveTitle
+	>
+	<ul class='space-y-14'>
+		<ResponsiveTitle type='md' class='flex items-center gap-4 text-gray-200'
+		>- <a
+				class='flex items-center gap-4 hover:underline'
+				href='https://www.linkedin.com/in/jos%C3%A9-miguel-g%C3%B3mez-94418728b/'
+				target='_blank'><LinkedInIcon class='h-7 w-7 md:h-10 md:w-10 lg:h-16 lg:w-16' /> LinkedIn</a
+			>
+		</ResponsiveTitle>
+		<ResponsiveTitle type='md' class='flex items-center gap-4 text-gray-200'
+		>- <a
+				class='flex items-center gap-4 hover:underline'
+				href='https://www.upwork.com/freelancers/~0137029bd4084a5084'
+				target='_blank'><UpworkIcon class='h-7 w-7 md:h-10 md:w-10 lg:h-16 lg:w-16' /> Upwork</a
+			>
+		</ResponsiveTitle>
+		<ResponsiveTitle type='md' class='flex items-center gap-4 text-gray-200'
+		>- <a
+				class='flex items-center gap-4 hover:underline'
+				href='https://github.com/Josemigg16'
+				target='_blank'><GithubIcon class='h-7 w-7 md:h-10 md:w-10 lg:h-16 lg:w-16' /> Github</a
+			>
+		</ResponsiveTitle>
+		<ResponsiveTitle type='md' class='flex items-center gap-4 text-gray-200'
+		>- <a transition:name='email' class='flex items-center gap-4 hover:underline' href='/email'
+			><GmailIcon class='h-7 w-7 md:h-10 md:w-10 lg:h-16 lg:w-16' /> Email</a
+			>
+		</ResponsiveTitle>
+	</ul>
 </article>

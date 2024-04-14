@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro'
+import ResponsiveTitle from '../components/ResponsiveTitle.astro'
+import GmailIcon from '../components/svg/Contact/GmailIcon.astro'
+---
+
+<Layout title='Email'>
+	<article class='min-h-screen pt-20 lg:px-20'>
+		<ResponsiveTitle class='flex h-20 items-center text-center text-4xl text-gray-200'
+		><a
+				transition:name='email'
+				class='mx-auto flex items-center gap-4 pr-12 hover:underline'
+				href='/email'><GmailIcon class='h-7 w-7 md:h-14 md:w-14 lg:h-20 lg:w-20' /> Email</a
+			>
+		</ResponsiveTitle>
+		<form class='mx-auto mt-16 flex w-5/6 flex-col space-y-7 md:w-1/2'>
+			<input type='text' name='email' class='rounded p-2' id='email' />
+			<textarea name='message' class='rounded p-2' id='message'></textarea>
+			<button
+				class='block w-full rounded bg-white p-2 text-xl font-bold text-slate-900 transition-colors hover:bg-blue-400 hover:text-white'
+			>Submit</button
+			>
+		</form>
+	</article>
+</Layout>
+<script>
+const email = document.querySelector('input') as HTMLInputElement
+const textarea = document.querySelector('textarea') as HTMLTextAreaElement
+const emailRegex = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/
+
+email.addEventListener('focus', () => {
+	if (email.value) email.classList.remove('bg-red-100')
+})
+email.addEventListener('blur', () => {
+	if (email.value) email.classList.remove('bg-red-100')
+})
+
+textarea.addEventListener('focus', () => {
+	if (textarea.value) textarea.classList.remove('bg-red-100')
+})
+textarea.addEventListener('blur', () => {
+	if (textarea.value) textarea.classList.remove('bg-red-100')
+})
+
+const form = document.querySelector('form')
+if (form) {
+	form.addEventListener('submit', (e) => {
+		e.preventDefault()
+		if (!email.value) return email.classList.add('bg-red-100')
+		if (textarea) {
+			if (!textarea.value) return textarea.classList.add('bg-red-100')
+		}
+		if (!emailRegex.test(email.value)) return alert('Invalid email')
+	})
+}
+</script>
