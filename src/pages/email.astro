@@ -18,8 +18,8 @@ import GmailIcon from '../components/svg/Contact/GmailIcon.astro'
       <textarea name='message' class='rounded p-2' id='message'></textarea>
       <button
         class='block w-full rounded bg-white p-2 text-xl font-bold text-slate-900 transition-colors hover:bg-blue-400 hover:text-white'
-        >Submit</button
-      >
+        >Submit
+      </button>
     </form>
   </article>
 </Layout>
@@ -59,8 +59,8 @@ import GmailIcon from '../components/svg/Contact/GmailIcon.astro'
           Accept: 'application/json'
         }
       })
-	  if(response.ok) alert('Email sent successfully')
-	  else alert('Email failed to send')
+      if (response.ok) alert('Email sent successfully')
+      else alert('Email failed to send')
     })
   }
 </script>
