@@ -20,10 +20,12 @@ import GmailIcon from '../components/svg/Contact/GmailIcon.astro'
         class='block w-full rounded bg-white p-2 text-xl font-bold text-slate-900 transition-colors hover:bg-blue-400 hover:text-white'
         >Submit
       </button>
+      <span class='success-message'></span>
     </form>
   </article>
 </Layout>
 <script>
+  import { successMessage } from '../utils/successMessage'
   const email = document.querySelector('input') as HTMLInputElement
   const textarea = document.querySelector('textarea') as HTMLTextAreaElement
   const emailRegex = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/
@@ -59,8 +61,43 @@ import GmailIcon from '../components/svg/Contact/GmailIcon.astro'
           Accept: 'application/json'
         }
       })
-      if (response.ok) alert('Email sent successfully')
-      else alert('Email failed to send')
+      if (response.ok) {
+        successMessage({
+          type: 'success',
+          message: 'Email sended successfully'
+        })
+        email.value = ''
+        textarea.value = ''
+      } else {
+        successMessage({
+          type: 'error',
+          message: 'Error sending email'
+        })
+      }
     })
   }
 </script>
+
+<style>
+  .success-message {
+    opacity: 0;
+    transition: transform;
+  }
+  .animate-fadeIn {
+    animation: fadeIn 3s ease-in-out;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+</style>
