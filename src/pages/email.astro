@@ -18,39 +18,86 @@ import GmailIcon from '../components/svg/Contact/GmailIcon.astro'
 			<textarea name='message' class='rounded p-2' id='message'></textarea>
 			<button
 				class='block w-full rounded bg-white p-2 text-xl font-bold text-slate-900 transition-colors hover:bg-blue-400 hover:text-white'
-			>Submit</button
-			>
+			>Submit
+			</button>
+			<span class='success-message'></span>
 		</form>
 	</article>
 </Layout>
 <script>
-const email = document.querySelector('input') as HTMLInputElement
-const textarea = document.querySelector('textarea') as HTMLTextAreaElement
-const emailRegex = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/
+  import { successMessage } from '../utils/successMessage'
+  const email = document.querySelector('input') as HTMLInputElement
+  const textarea = document.querySelector('textarea') as HTMLTextAreaElement
+  const emailRegex = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/
 
-email.addEventListener('focus', () => {
-	if (email.value) email.classList.remove('bg-red-100')
-})
-email.addEventListener('blur', () => {
-	if (email.value) email.classList.remove('bg-red-100')
-})
+  email.addEventListener('focus', () => {
+  	if (email.value) email.classList.remove('bg-red-100')
+  })
+  email.addEventListener('blur', () => {
+  	if (email.value) email.classList.remove('bg-red-100')
+  })
 
-textarea.addEventListener('focus', () => {
-	if (textarea.value) textarea.classList.remove('bg-red-100')
-})
-textarea.addEventListener('blur', () => {
-	if (textarea.value) textarea.classList.remove('bg-red-100')
-})
+  textarea.addEventListener('focus', () => {
+  	if (textarea.value) textarea.classList.remove('bg-red-100')
+  })
+  textarea.addEventListener('blur', () => {
+  	if (textarea.value) textarea.classList.remove('bg-red-100')
+  })
 
-const form = document.querySelector('form')
-if (form) {
-	form.addEventListener('submit', (e) => {
-		e.preventDefault()
-		if (!email.value) return email.classList.add('bg-red-100')
-		if (textarea) {
-			if (!textarea.value) return textarea.classList.add('bg-red-100')
-		}
-		if (!emailRegex.test(email.value)) return alert('Invalid email')
-	})
-}
+  const form = document.querySelector('form')
+  if (form) {
+  	form.addEventListener('submit', async (e) => {
+  		e.preventDefault()
+  		if (!email.value) return email.classList.add('bg-red-100')
+  		if (textarea) {
+  			if (!textarea.value) return textarea.classList.add('bg-red-100')
+  		}
+  		if (!emailRegex.test(email.value)) return alert('Invalid email')
+  		const data = new FormData(form)
+  		const response = await fetch('https://formspree.io/f/mayranaj', {
+  			body: data,
+  			method: 'POST',
+  			headers: {
+  				Accept: 'application/json'
+  			}
+  		})
+  		if (response.ok) {
+  			successMessage({
+  				type: 'success',
+  				message: 'Email sended successfully'
+  			})
+  			email.value = ''
+  			textarea.value = ''
+  		} else {
+  			successMessage({
+  				type: 'error',
+  				message: 'Error sending email'
+  			})
+  		}
+  	})
+  }
 </script>
+
+<style>
+  .success-message {
+    opacity: 0;
+    transition: transform;
+  }
+  .animate-fadeIn {
+    animation: fadeIn 3s ease-in-out;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+</style>
