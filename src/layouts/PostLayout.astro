@@ -1,0 +1,56 @@
+---
+import ResponsiveAnchor from '../components/ResponsiveAnchor.astro'
+import ResponsiveParagraph from '../components/ResponsiveParagraph.astro'
+import ResponsiveTitle from '../components/ResponsiveTitle.astro'
+import Layout from './Layout.astro'
+
+const { frontmatter } = Astro.props
+---
+
+<Layout title={frontmatter.title}>
+  <article class='min-h-screen'>
+    <section class='mx-auto max-w-[800px]'>
+      <ResponsiveTitle class='text-pretty py-8 text-center' type='md'
+        >{frontmatter.title}</ResponsiveTitle
+      >
+      <img
+        class='mx-auto min-h-80 rounded bg-black object-contain shadow-xl'
+        src={frontmatter.image.url}
+        width='1000'
+        alt={frontmatter.image.alt}
+      />
+      <div class='flex justify-between px-2'>
+        <small class='block text-nowrap text-end text-sm opacity-50'>
+          Escrito por {frontmatter.author}
+        </small>
+        <small class='block text-nowrap text-end text-sm opacity-50'
+          >{frontmatter.pubDate.toString().slice(0, 10)}</small
+        >
+      </div>
+      <ResponsiveParagraph><em>{frontmatter.description}</em></ResponsiveParagraph>
+      <ul class='flex overflow-x-auto'>
+        {
+          frontmatter.tags.map((tag: string) => (
+            <ResponsiveAnchor
+              class='mx-1 rounded bg-blue-500 p-2 hover:bg-blue-400 hover:no-underline'
+              href={`/tags/${tag}`}
+              size='sm'
+            >
+              {tag}
+            </ResponsiveAnchor>
+          ))
+        }
+      </ul>
+    </section>
+    <section id='main-article' class='my-8 px-6'>
+      <slot />
+    </section>
+  </article>
+</Layout>
+<style>
+  #main-article {
+    & {
+      @apply mx-auto mt-3 max-w-[65ch] text-pretty indent-10  lg:pl-6 lg:text-xl xl:text-xl 2xl:text-2xl;
+    }
+  }
+</style>

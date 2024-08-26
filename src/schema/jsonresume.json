@@ -5,7 +5,7 @@
     "basics": {
         "name": "José Miguel Gómez",
         "label": "Web Developer",
-        "image": "./profile.jpeg",
+        "image": "/profile.jpeg",
         "summary": "Passionate full stack developer adept at leveraging cutting-edge technologies to create dynamic and user-friendly web experiences. Proficient in HTML5, CSS3, JavaScript, and frameworks like React.js, Next.js and Astro. Committed to delivering innovative solutions that meet client needs and drive success in the digital space.",
         "website": "https://josemigg.vercel.app",
         "email": "josemiggomez16@gmail.com",
@@ -23,29 +23,48 @@
                 "url": "https://github.com/Josemigg16",
                 "username": "Josemigg16",
                 "network": "github"
+            },
+            {
+                "url": "https://www.linkedin.com/in/josem-gomez",
+                "username": "XXXXXXXXXXX",
+                "network": "linkedin"
+            },
+            {
+                "url": "https://www.upwork.com/freelancers/~0137029bd4084a5084",
+                "username": "XXXXXX",
+                "network": "upwork"
             }
         ]
     },
     "projects": [
         {
-            "name":"Cortito",
-            "description":"Cortito is an open source full stack link shortener, it will create it easily and you can sign in with google or github to save, edit and delete your shortcuts with intuitive UI, also they have two views, as cards and as a list. It was made in Astro with React for Frontend and Express.js, Prisma and PostgreSQL for backend.",
-            "slug":"/cortito",
+            "name": "Cortito",
+            "description": "Cortito is an open source full stack link shortener, it will create it easily and you can sign in with google or github to save, edit and delete your shortcuts with intuitive UI, also they have two views, as cards and as a list. It was made in Astro with React for Frontend and Express.js, Prisma and PostgreSQL for backend.",
+            "slug": "cortito",
             "technologies": [
-                "astro", "react", "postgres", "prisma", "tailwind"
+                "astro",
+                "react",
+                "express",
+                "postgres",
+                "prisma",
+                "tailwind"
             ],
             "website": "https://cortito.vercel.app",
             "github": "https://github.com/Josemigg16/Cortito",
             "issues": [
                 "This page uses the free render plan as its backend, so when creating a shortcut, after a while, you should wait around 50 seconds for the REST API to activate."
-        ]
+            ]
         },
         {
             "name": "Secrettito",
             "description": "Secrettito is an open source web aplication for fun, you can create post where your friends will be able to send you anonymous messages, you might copy them easily or use native share, also it provide you a nice UX for watching the messages. Frontend and Backend are in a next.js web app with postgreSQL as database and Prisma as ORM.",
-            "slug": "/secrettito",
+            "slug": "secrettito",
             "technologies": [
-                "next", "react", "node", "express", "postgres", "prisma", "tailwind"
+                "next",
+                "react",
+                "postgres",
+                "prisma",
+                "tailwind"
             ],
             "website": "https://secrettito.vercel.app",
             "github": "https://github.com/Josemigg16/Secrettito",

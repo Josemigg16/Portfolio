@@ -1,0 +1,37 @@
+---
+import HeaderAnchor from './HeaderAnchor.astro'
+import BarsIcon from './svg/BarsIcon.astro'
+---
+
+<button id='toggle-hamburger' class='block sm:hidden'>
+  <BarsIcon className='w-7 opacity-85' />
+</button>
+<nav
+  style='transition: all .3s;'
+  id='hamburger'
+  class='absolute ml-auto mt-20 hidden h-fit w-full -translate-x-[700%] flex-col items-center gap-[1px] bg-gray-700 py-[1px] text-lg transition-transform duration-300 sm:relative sm:mt-0 sm:flex sm:h-full sm:w-auto sm:-translate-x-0 sm:flex-row sm:space-y-0 sm:bg-transparent dark:bg-gray-500 dark:sm:bg-transparent space-y-[1px]'
+>
+  <HeaderAnchor href='/'>Home</HeaderAnchor>
+  <HeaderAnchor href='/#projects'> Projects </HeaderAnchor>
+  <HeaderAnchor href='/blog'> Blog </HeaderAnchor>
+  <HeaderAnchor href='/tags'> Tags </HeaderAnchor>
+  <HeaderAnchor href='/email'> Contact </HeaderAnchor>
+</nav>
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    const hamburger = document.getElementById('hamburger')
+    document.getElementById('toggle-hamburger').addEventListener('click', () => {
+      if (hamburger.classList.contains('hidden')) {
+        hamburger.classList.toggle('hidden')
+        setTimeout(() => {
+          hamburger.classList.toggle('-translate-x-[700%]')
+        }, 50)
+      } else {
+        hamburger.classList.toggle('-translate-x-[700%]')
+        setTimeout(() => {
+          hamburger.classList.toggle('hidden')
+        }, 50)
+      }
+    })
+  })
+</script>

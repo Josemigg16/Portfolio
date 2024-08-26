@@ -1,5 +1,7 @@
 ---
 import { ViewTransitions } from 'astro:transitions'
+import Header from '@/components/Header.astro'
+import Footer from '@/components/Footer.astro'
 interface Props {
   title: string
 }
@@ -9,37 +11,41 @@ const { title } = Astro.props
 
 <!doctype html>
 <html lang='en'>
-	<head>
-		<meta charset='UTF-8' />
-		<meta name='description' content='Astro description' />
-		<meta name='viewport' content='width=device-width' />
-		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-		<link rel='preconnect' href='https://fonts.googleapis.com' />
-		<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-		<link
-			href='https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap'
-			rel='stylesheet'
-		/>
-		<meta name='generator' content={Astro.generator} />
-		<title>{title}</title>
-		<ViewTransitions />
-	</head>
-	<body class='h-screen overflow-hidden'>
-		<main class='h-screen overflow-auto'>
-			<section class='mx-auto w-full bg-black bg-opacity-85 lg:w-10/12'>
-				<slot />
-			</section>
-		</main>
-		<style is:global>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content='Astro description' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap'
+      rel='stylesheet'
+    />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <article class='relative overflow-x-hidden pt-20'>
+      <Header />
+      <slot />
+      <Footer />
+    </article>
+    <style is:global>
       :root {
+        --gray: #17202a;
       }
-      body {
-        font-family: Onest;
-        background-image: url('/background.gif');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        position: sticky;
+      html {
+        @apply bg-gray-100
+      }
+      html.dark {
+        @apply bg-[var(--gray)] text-gray-100;
+      }
+
+      input,
+      textarea {
+        @apply text-gray-900;
       }
 
       .animate-float {
@@ -56,6 +62,6 @@ const { title } = Astro.props
           transform: translateY(0);
         }
       }
-		</style>
-	</body>
+    </style>
+  </body>
 </html>

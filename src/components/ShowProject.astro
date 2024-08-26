@@ -21,29 +21,16 @@ interface Props {
 const { project, class: className }: Props = Astro.props
 ---
 
-<section class={`flex min-h-80 flex-col items-center justify-around lg:flex-row ${className}`}>
-	<article class='min-w-[60%]'>
-		<ResponsiveTitle class='text-yellow-200 lg:pl-24' type='md'>{project.name}</ResponsiveTitle>
-		<ResponsiveParagraph class='pr-6'>{project.description} </ResponsiveParagraph>
-	</article>
-	<article class='mt-8 min-w-[200px] max-w-[70%] lg:mt-24'>
-		<figure class=''>
-			<a href={`/projects/${project.slug}`}>
-				<img
-					transition:name={`${project.name} video`}
-					class='rounded transition-[opacity_transform] hover:scale-105'
-					style='mask-image: linear-gradient(to bottom, black 90%, transparent);'
-					src={`${project.slug}.png`}
-				/>
-			</a>
-		</figure>
-		<ul class='mx-auto mt-4 flex flex-wrap items-center justify-center gap-4'>
-			{
-				getIcons(project.technologies).map(({ Icon, className }) => {
-					// eslint-disable-next-line @typescript-eslint/no-explicit-any
-					return <Icon class={className} />
-				})
-			}
-		</ul>
-	</article>
+<section class={`w-fit rounded h-60 hover:bg-gray-700 transition-colors ${className}`}>
+  <figure class='mx-auto w-80'>
+    <img transition:name={`${project.name} video`} src={`/${project.slug}.png`} />
+  </figure>
+  <ul class='mx-auto mt-4 flex flex-nowrap items-center justify-center gap-4'>
+    {
+      getIcons(project.technologies).map(({ Icon, className }) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        return <Icon class={className} />
+      })
+    }
+  </ul>
 </section>

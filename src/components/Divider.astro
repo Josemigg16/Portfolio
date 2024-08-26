@@ -1,0 +1,10 @@
+---
+interface Props {
+  type?: 'horizontal' | 'vertical'
+  className: string
+}
+
+const { type = 'vertical', className }: Props = Astro.props
+---
+
+<div class={`my-auto h-3/4 w-[1px] bg-gray-700 opacity-50 ${className}`}></div>

@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content'
+import ResponsiveAnchor from '../../components/ResponsiveAnchor.astro'
+import ResponsiveTitle from '../../components/ResponsiveTitle.astro'
+import Layout from '../../layouts/Layout.astro'
+const allPosts = await getCollection('posts')
+const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
+---
+
+<Layout title='Tags index'>
+  <article class='min-h-screen'>
+    <ResponsiveTitle class='py-12 text-center'> Tags index </ResponsiveTitle>
+    <ul class='flex gap-3 pl-12'>
+      {
+        tags.map((tag) => (
+          <ResponsiveAnchor
+            class='rounded dark:bg-blue-500 bg-black p-2 text-center hover:bg-blue-400 hover:no-underline text-white'
+            href={`/tags/${tag}`}
+          >
+            {tag}
+          </ResponsiveAnchor>
+        ))
+      }
+    </ul>
+  </article>
+</Layout>

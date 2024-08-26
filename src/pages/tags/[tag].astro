@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content'
+import ResponsiveAnchor from '../../components/ResponsiveAnchor.astro'
+import ResponsiveParagraph from '../../components/ResponsiveParagraph.astro'
+import ResponsiveTitle from '../../components/ResponsiveTitle.astro'
+import BaseLayout from '../../layouts/Layout.astro'
+
+export async function getStaticPaths() {
+  const allPosts: any = await getCollection('posts')
+  const uniqueTags: any = [...new Set(allPosts.map((post: any) => post.data.tags).flat())]
+  return uniqueTags.map((tag: string) => {
+    const filteredPosts = allPosts.filter((post: any) => post.data.tags.includes(tag))
+    return {
+      params: { tag },
+      props: { posts: filteredPosts }
+    }
+  })
+}
+
+const { tag } = Astro.params
+const { posts } = Astro.props
+---
+
+<BaseLayout title={tag as string}>
+  <article class='min-h-screen'>
+    <ResponsiveTitle type='sm' class='mb-6 py-12 text-center'
+      >Entries with "{tag}" tag</ResponsiveTitle
+    >
+    <ul>
+      {
+        (posts as any).map((post: any) => (
+          <li class='mb-4 pl-4'>
+            {' '}
+            -
+            <ResponsiveAnchor size='lg' href={`/posts/${post.slug}`}>
+              {post.data.title}
+            </ResponsiveAnchor>
+          </li>
+        ))
+      }
+    </ul>
+  </article>
+</BaseLayout>

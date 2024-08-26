@@ -1,0 +1,25 @@
+---
+interface Props {
+  class?: string
+  href: string
+  target?: string
+  size?: 'lg' | 'md' | 'sm'
+}
+
+const { class: className, href, target, size = 'md' }: Props = Astro.props
+let sizeString = {
+  sm: 'text-sm xl:text-md 2xl:text-lg',
+  md: 'text-md xl:text-lg 2xl:text-xl',
+  lg: 'text-lg xl:text-xl 2xl:text-2xl'
+}
+---
+
+<a
+  class={`mt-3 max-w-[50ch] text-nowrap hover:underline transition-all
+  ${sizeString[size]}
+  ${className}`}
+  href={href}
+  target={target}
+>
+  <slot />
+</a>
