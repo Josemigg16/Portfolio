@@ -9,7 +9,7 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
 
 <Layout title='Tags index'>
   <article class='min-h-screen'>
-    <ResponsiveTitle class='py-12 text-center'> Tags index </ResponsiveTitle>
+    <ResponsiveTitle type='md' class='py-12 text-center'> Tags index </ResponsiveTitle>
     <ul class='flex gap-3 pl-12'>
       {
         tags.map((tag) => (

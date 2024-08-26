@@ -8,71 +8,83 @@ import { getIcons } from '@/utils/iconList'
 import type { GetStaticPaths } from 'astro'
 import ResponsiveParagraph from '@/components/ResponsiveParagraph.astro'
 export const getStaticPaths = (() => {
-	return projects.map((project) => ({
-		params: { project: project.slug },
-		props: { project }
-	}))
+  return projects.map((project) => ({
+    params: { project: project.slug },
+    props: { project }
+  }))
 }) satisfies GetStaticPaths
 const { project } = Astro.props
 ---
 
 <Layout title={project.name}>
-	<article class='flex min-h-screen flex-col items-center justify-around lg:flex-row lg:px-20'>
-		<section class='pt-12'>
-			<ResponsiveTitle class='pl-12'>{project.name}</ResponsiveTitle>
-			<video
-				transition:name={`${project.name} video`}
-				class='mx-auto my-8 w-5/6 rounded'
-				src={`/${project.slug}.mp4`}
-				poster={`/${project.slug}.png`}
-				autoplay
-				muted
-			>
-			</video>
-			<ul class='mb-8 flex scale-125 items-center justify-center gap-4'>
-				{
-					getIcons(project.technologies).map(({ Icon, className }) => {
-						// eslint-disable-next-line @typescript-eslint/no-explicit-any
-						return <Icon class={className} />
-					})
-				}
-			</ul>
-			<ResponsiveTitle class='text-yellow-200' type='md'>Description</ResponsiveTitle>
-			<ResponsiveParagraph>{project.description}</ResponsiveParagraph>
-		</section>
-		<section class='flex flex-col gap-16 py-20 lg:min-h-screen lg:justify-between lg:pl-20'>
-			<header>
-				<ResponsiveTitle class='text-red-200' type='md'>Issues</ResponsiveTitle>
-				{
-					project.issues.length < 1
-						? (
-							<ResponsiveParagraph class='text-gray-200'>
-              - We have no issues in this page!
-							</ResponsiveParagraph>
-						)
-						: (
-							project.issues.map((issue) => (
-								<ResponsiveParagraph class='text-white'>- {issue}</ResponsiveParagraph>
-							))
-						)
-				}
-			</header>
-			<footer class='space-y-5'>
-				<div class='flex items-center gap-4'>
-					<InternetIcon class='h-10 w-10' />
-					<ResponsiveTitle class='mt-1.5 text-gray-200 hover:underline' type='md'
-					><a href={project.website} target='_blank' rel='noopener noreferrer'>Visit</a
-						></ResponsiveTitle
-					>
-				</div>
-				<div class='flex items-center gap-4'>
-					<GithubIcon class='h-10 w-10' />
-					<ResponsiveTitle class='mt-2 text-gray-200 hover:underline' type='md'
-					><a href={project.github} target='_blank' rel='noopener noreferrer'>Github</a
-						></ResponsiveTitle
-					>
-				</div>
-			</footer>
-		</section>
-	</article>
+  <article class='min-h-screen lg:px-20 px-4'>
+    <section class='pt-12'>
+      <div class='mx-auto max-w-[1000px]'>
+        <video
+          transition:name={`${project.name} video`}
+          class='mx-auto my-4 w-[90vw] max-w-[1000px] rounded sm:my-8'
+          src={`/${project.slug}.mp4`}
+          poster={`/${project.slug}.png`}
+          autoplay
+          muted
+        >
+        </video>
+        <div class='flex flex-wrap items-center justify-between px-12'>
+          <h3 class='h-full w-full text-center text-3xl font-bold sm:w-auto sm:text-5xl'>
+            {project.name}
+          </h3>
+          <ul class='flex h-full w-full items-center justify-center gap-4 sm:w-auto md:scale-125'>
+            {
+              getIcons(project.technologies).map(({ Icon, className }) => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                return <Icon class={className} />
+              })
+            }
+          </ul>
+        </div>
+        <div class='mt-6 flex flex-col sm:items-end justify-end mr-8'>
+          <a
+            class='flex items-center gap-4 hover:underline'
+            href={project.github}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <GithubIcon class='mt-2 h-10 w-10' />
+            <h4 class='mt-2 text-3xl sm:text-4xl'>Github</h4>
+          </a>
+          <a
+            class='flex items-center gap-4 hover:underline'
+            href={project.website}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <InternetIcon class='mt-2.5 h-10 w-10' />
+            <h4 class='mt-1.5 text-3xl sm:text-4xl'>Visit</h4>
+          </a>
+        </div>
+      </div>
+      <section>
+        <ResponsiveTitle class='mb-8 mt-20 text-center dark:text-yellow-200' type='md'
+          >Description</ResponsiveTitle
+        >
+        <ResponsiveParagraph class='mx-auto'>{project.description}</ResponsiveParagraph>
+      </section>
+    </section>
+    <section class='flex flex-col py-20'>
+      <ResponsiveTitle class='mt-20 text-center dark:text-red-200' type='md'>Issues</ResponsiveTitle>
+      {
+        project.issues.length < 1 ? (
+          <ResponsiveParagraph class='mx-auto'>
+            We have no issues in this project!
+          </ResponsiveParagraph>
+        ) : (
+          <ul class='space-y-4'>
+            {project.issues.map((issue) => (
+              <ResponsiveParagraph class='mx-auto'>- {issue}</ResponsiveParagraph>
+            ))}
+          </ul>
+        )
+      }
+    </section>
+  </article>
 </Layout>

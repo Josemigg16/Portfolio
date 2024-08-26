@@ -1,7 +1,5 @@
 ---
 import { getCollection } from 'astro:content'
-import ResponsiveAnchor from '../../components/ResponsiveAnchor.astro'
-import ResponsiveParagraph from '../../components/ResponsiveParagraph.astro'
 import ResponsiveTitle from '../../components/ResponsiveTitle.astro'
 import BaseLayout from '../../layouts/Layout.astro'
 
@@ -18,26 +16,42 @@ export async function getStaticPaths() {
 }
 
 const { tag } = Astro.params
-const { posts } = Astro.props
+const { posts }: { posts: any } = Astro.props
 ---
 
 <BaseLayout title={tag as string}>
-  <article class='min-h-screen'>
+  <article class='min-h-screen px-0 sm:px-10'>
     <ResponsiveTitle type='sm' class='mb-6 py-12 text-center'
       >Entries with "{tag}" tag</ResponsiveTitle
     >
-    <ul>
-      {
-        (posts as any).map((post: any) => (
-          <li class='mb-4 pl-4'>
-            {' '}
-            -
-            <ResponsiveAnchor size='lg' href={`/posts/${post.slug}`}>
-              {post.data.title}
-            </ResponsiveAnchor>
-          </li>
-        ))
-      }
-    </ul>
+    {
+      posts.length === 0 ? (
+        <p class='mt-40 grid place-content-center'>No posts found</p>
+      ) : (
+        <ul class='my-8 flex flex-wrap gap-10 pl-4'>
+          {posts.map((post: any) => (
+            <li class='mx-auto flex h-60 max-w-[250px] flex-col justify-between sm:mx-0'>
+              <picture class='grid h-full place-content-center rounded'>
+                <a href={`/posts/${post.slug}`}>
+                  <img
+                    style={`view-transition-name:${post.data.id};`}
+                    class='rounded bg-black'
+                    src={post.data.image.url}
+                    alt=''
+                    width='250'
+                  />
+                </a>
+              </picture>
+              <a
+                class='line-clamp-3 px-2 pb-6 indent-2 font-semibold hover:underline'
+                href={`posts/${post.slug}`}
+              >
+                {post.data.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
   </article>
 </BaseLayout>

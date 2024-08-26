@@ -21,11 +21,11 @@ interface Props {
 const { project, class: className }: Props = Astro.props
 ---
 
-<section class={`w-fit rounded h-60 hover:bg-gray-700 transition-colors pt-4 ${className}`}>
+<section class={`w-fit rounded h-60 transition-colors pt-4 ${className}`}>
   <figure class='mx-auto w-80 relative'>
-    <img transition:name={`${project.name} video`} src={`/${project.slug}.png`} />
+    <img class="rounded" transition:name={`${project.name} video`} src={`/${project.slug}.png`} />
     <div class="grid place-content-center h-full w-full absolute top-0 left-0 bg-black bg-opacity-80 transition-opacity opacity-0">
-      <h3 class="font-bold mt-auto text-2xl">
+      <h3 class="font-bold mt-auto text-2xl text-white">
         {project.name}
       </h3>
     </div>
