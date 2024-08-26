@@ -13,12 +13,15 @@ const { frontmatter } = Astro.props
       <ResponsiveTitle class='text-pretty py-8 text-center' type='md'
         >{frontmatter.title}</ResponsiveTitle
       >
-      <img
-        class='mx-auto min-h-80 rounded bg-black object-contain shadow-xl'
-        src={frontmatter.image.url}
-        width='1000'
-        alt={frontmatter.image.alt}
-      />
+      <figure class='mx-auto grid min-h-80 place-content-center'>
+        <img
+          class='rounded bg-black object-contain shadow-xl'
+          src={frontmatter.image.url}
+          width='1000'
+          alt={frontmatter.image.alt}
+          style={`view-transition-name:${frontmatter.id};`}
+        />
+      </figure>
       <div class='flex justify-between px-2'>
         <small class='block text-nowrap text-end text-sm opacity-50'>
           Escrito por {frontmatter.author}

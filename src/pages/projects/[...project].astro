@@ -18,13 +18,13 @@ const { project } = Astro.props
 
 <Layout title={project.name}>
 	<article class='flex min-h-screen flex-col items-center justify-around lg:flex-row lg:px-20'>
-		<section class='w-1/2 pt-12'>
+		<section class='pt-12'>
 			<ResponsiveTitle class='pl-12'>{project.name}</ResponsiveTitle>
 			<video
 				transition:name={`${project.name} video`}
 				class='mx-auto my-8 w-5/6 rounded'
-				src={`${project.slug}.mp4`}
-				poster={`${project.slug}.png`}
+				src={`/${project.slug}.mp4`}
+				poster={`/${project.slug}.png`}
 				autoplay
 				muted
 			>
@@ -40,7 +40,7 @@ const { project } = Astro.props
 			<ResponsiveTitle class='text-yellow-200' type='md'>Description</ResponsiveTitle>
 			<ResponsiveParagraph>{project.description}</ResponsiveParagraph>
 		</section>
-		<section class='flex w-1/2 flex-col gap-16 py-20 lg:min-h-screen lg:justify-between lg:pl-20'>
+		<section class='flex flex-col gap-16 py-20 lg:min-h-screen lg:justify-between lg:pl-20'>
 			<header>
 				<ResponsiveTitle class='text-red-200' type='md'>Issues</ResponsiveTitle>
 				{
