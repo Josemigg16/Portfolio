@@ -8,16 +8,18 @@ const allPosts = await getCollection('posts')
 
 <Layout title='Blog'>
   <article class='min-h-screen px-0 sm:px-10'>
-    <div class='relative ml-auto mr-auto sm:mr-0'>
-      <Glyph className='absolute left-3 top-1' width='30' />
-      <input
-        id='search'
-        placeholder='Search Posts'
-        class='mx-2 mt-14 block w-80 rounded-lg border-2 border-gray-500 bg-transparent py-1 pl-10 pr-2 outline-none dark:text-white'
-        type='text'
-      />
+    <div>
+      <div class='relative mx-auto sm:mx-0 w-fit'>
+        <Glyph className='absolute left-3 top-1' width='30' />
+        <input
+          id='search'
+          placeholder='Search Posts'
+          class='mx-2 mt-14 block w-80 rounded-lg border-2 border-gray-500 bg-transparent py-1 pl-10 pr-2 outline-none dark:text-white'
+          type='text'
+        />
+      </div>
+      <Posts client:load allPosts={allPosts} />
     </div>
-    <Posts client:load allPosts={allPosts} />
   </article>
 </Layout>
 <script>
