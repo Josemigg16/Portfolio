@@ -21,7 +21,7 @@ export default function Posts({ allPosts }: any) {
 							<img
 								style={`view-transition-name:${post.data.id};`}
 								class='rounded bg-black dark:bg-transparent'
-								src={post.data.image.url}
+								src={post.data.image}
 								alt={post.data.title}
 								width='250'
 							/>

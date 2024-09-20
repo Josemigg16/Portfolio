@@ -16,7 +16,7 @@ const { frontmatter } = Astro.props
       <figure class='mx-auto grid min-h-80 place-content-center'>
         <img
           class='rounded bg-black dark:bg-transparent object-contain'
-          src={frontmatter.image.url}
+          src={frontmatter.image}
           width='1000'
           alt={frontmatter.image.title}
           style={`view-transition-name:${frontmatter.id};`}
