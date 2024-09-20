@@ -2,7 +2,7 @@ import rss from '@astrojs/rss'
 import { getCollection } from 'astro:content'
 
 export async function GET(context) {
-	const posts = getCollection('posts')
+	const posts = await getCollection('posts')
 	return rss({
 		title: 'Josemigg Web',
 		description: 'This my personal portfolio and blog',
