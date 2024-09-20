@@ -20,7 +20,7 @@ export default function Posts({ allPosts }: any) {
 						<a href={`posts/${post.slug}`}>
 							<img
 								style={`view-transition-name:${post.data.id};`}
-								class='rounded bg-black'
+								class='rounded bg-black dark:bg-transparent'
 								src={post.data.image.url}
 								alt=''
 								width='250'
